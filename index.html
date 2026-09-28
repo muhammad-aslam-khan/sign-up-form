@@ -10,7 +10,7 @@
 		<div class="image-side">
 			<figure>
 				<img
-					src="/green-grass-field-during-sunset.jpg"
+					src="/images/green-grass-field-during-sunset.jpg"
 					alt="Green grass field during sunset"
 					srcset=""
 				/>
@@ -27,16 +27,33 @@
 					>
 				</figcaption>
 			</figure>
-			<div class="logo-section">logo</div>
+			<div class="logo-section">
+				<figure>
+					<img src="/images/vacation.png" alt="" />
+					<figcaption>
+						<a
+							href="https://www.flaticon.com/free-icons/archipelago"
+							title="archipelago icons"
+							>Archipelago icons created by Flat Icons -
+							Flaticon</a
+						>
+					</figcaption>
+				</figure>
+			</div>
 		</div>
 		<div class="text-side">
 			<div class="text-side-container">
 				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-					Ullam tempore quhasi veniam deleniti laboriosam perspiciatis
-					eveniet, voluptatibus sequi numquam iste?
+					This is a simple demo form for demonstration purposes. The
+					focused input field is highlighted with a blue border, and
+					input validation messages are displayed in front of the
+					input box.
 				</p>
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+				<p>
+					For the First Name and Last Name fields, the validation
+					requires a minimum of three characters. All fields are
+					required except phone number.
+				</p>
 				<form action="#" method="get">
 					<fieldset>
 						<legend>Let's do this!</legend>
@@ -46,7 +63,11 @@
 								type="text"
 								name="first-name"
 								id="first-name"
+								placeholder="John"
+								minlength="3"
+								required
 							/>
+							<span></span>
 						</div>
 						<div class="input-and-label">
 							<label for="last-name">Last Name</label>
@@ -54,15 +75,33 @@
 								type="text"
 								name="last-name"
 								id="last-name"
+								placeholder="Doe"
+								minlength="3"
+								required
 							/>
+							<span></span>
 						</div>
 						<div class="input-and-label">
 							<label for="email">Email</label>
-							<input type="email" name="email" id="email" />
+							<input
+								type="email"
+								name="email"
+								id="email"
+								placeholder="someone@domain.com"
+								required
+							/>
+							<span></span>
 						</div>
 						<div class="input-and-label">
 							<label for="phone">Phone Number</label>
-							<input type="tel" name="phone" id="phone" />
+							<input
+								type="tel"
+								name="phone"
+								id="phone"
+								placeholder="+1 524 45745"
+								minlength="9"
+							/>
+							<span></span>
 						</div>
 						<div class="input-and-label">
 							<label for="password">Password</label>
@@ -70,20 +109,28 @@
 								type="password"
 								name="password"
 								id="password"
+								placeholder="Minimum 6 characters"
+								minlength="6"
+								required
 							/>
+							<span></span>
 						</div>
 						<div class="input-and-label">
 							<label for="confirm-password"
 								>Confirm Password</label
 							>
 							<input
-								type="confirm-password"
+								type="password"
 								name="confirm-password"
 								id="confirm-password"
+								placeholder="Minimum 6 characters"
+								minlength="6"
+								required
 							/>
+							<span></span>
 						</div>
 					</fieldset>
-					<button type="submit">Creare Account</button>
+					<button type="submit">Create Account</button>
 				</form>
 
 				<p>Already have an account? <a href="#">Log in</a></p>

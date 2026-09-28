@@ -4,44 +4,78 @@
 body {
 	margin: 0;
 	padding: 0;
-
 	font-family: Roboto, system-ui;
 }
+
+/* Image Side */
 .image-side {
-	position: fixed;
-	left: 0;
-	top: 0;
+	position: relative;
+
 	width: var(--image-side-w);
 	height: 100vh;
 	overflow: hidden;
 }
-
-figure {
+.image-side figure {
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	height: 100%;
 }
-figcaption {
-	position: fixed;
-	margin-top: -22vh;
+.image-side figure img {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	/* To centre the image */
+	object-fit: cover;
+	object-position: center;
+}
+.image-side figcaption {
+	position: absolute;
+	bottom: 0px;
+
 	text-align: center;
 	color: white;
 	width: var(--image-side-w);
+
+	background-color: rgba(10, 10, 10, 0.536);
+	padding: 10px;
 }
-figcaption > a {
+.image-side figcaption > a {
 	color: white;
 }
 .logo-section {
-	position: fixed;
-	/* display: block; */
+	position: absolute;
+	top: 15vh;
+	left: 0;
+
 	width: var(--image-side-w);
-	height: 40px;
-	padding: 20px 0px 10px 0px;
-	margin-top: -95vh;
-	text-align: center;
-	background-color: rgba(10, 10, 10, 0.536);
+	height: 15vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	color: white;
 }
-
+.logo-section > figure {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.logo-section > figure > img {
+	/* margin-top: 10%; */
+	height: 65%;
+	object-fit: contain;
+	object-position: center;
+}
+.logo-section > figure > figcaption {
+	background-color: rgba(10, 10, 10, 0.536);
+	padding: 5px;
+	font-size: smaller;
+}
+/* Form Side */
 .text-side {
 	position: fixed;
 	left: var(--image-side-w);
@@ -62,15 +96,13 @@ figcaption > a {
 
 p:first-of-type,
 p:first-of-type + p {
-	font-weight: 600;
+	font-weight: 400;
 }
 p:last-of-type {
 	font-size: large;
 }
 
 form {
-	height: 50vh;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -92,11 +124,12 @@ fieldset {
 }
 fieldset > legend {
 	position: relative;
-	top: 30px;
+	top: 40px;
+	font-size: xx-large;
 }
 label {
 	display: block;
-	margin-bottom: 10px;
+	margin-bottom: 7px;
 	font-size: medium;
 	font-variant: small-caps;
 }
@@ -105,6 +138,8 @@ input {
 	width: 300px;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-size: large;
+	padding: 2px 10px;
+	margin-bottom: 15px;
 
 	border: 0.1px solid rgba(0, 128, 0, 0.382);
 	border-radius: 5px;
@@ -112,16 +147,38 @@ input {
 input[type="password"] {
 	border: 1px solid rgba(128, 0, 0, 0.605);
 }
+
+/* ---------------- */
+/* Form Validations */
 input:focus {
 	outline: none;
 	border: 0.1px solid rgb(6, 0, 128);
 	box-shadow: 0 0 5px rgba(0, 0, 255, 0.423);
 }
+/* Targeting the label which has immediate sibling which has required attribute on */
+label:has(+ input[required])::after {
+	content: " *";
+	font-size: large;
+}
+input:user-valid + span::before {
+	content: "✓";
+	color: green;
+}
+input:user-valid {
+	border: 0.1px solid rgb(55, 128, 0);
+	box-shadow: 0 0 5px rgba(55, 128, 0);
+}
+input:user-invalid + span::before {
+	content: "✖";
+	color: red;
+}
+/* ---------------------- */
+/* Form validations ended */
 
 .input-and-label {
 	flex: 0 0 49%;
-	/* border: 1px solid; */
 }
+
 button {
 	width: 300px;
 	height: 50px;
@@ -140,7 +197,4 @@ button:hover {
 button:active {
 	background-color: white;
 	color: green;
-}
-.text-side-container {
-	/* border: 1px solid black; */
 }
